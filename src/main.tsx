@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { categories, githubAvatar, githubProfile, projects, type Project, type ProjectCategory } from './projects'
@@ -6,6 +6,29 @@ import './styles.css'
 
 const externalLinkProps = { target: '_blank', rel: 'noreferrer noopener' }
 const spaced = (word: string) => word.split('').join(' ')
+
+
+function Loader() {
+  const [hidden, setHidden] = useState(false)
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setHidden(true), 1200)
+    return () => window.clearTimeout(timer)
+  }, [])
+
+  return (
+    <div className={`loader ${hidden ? 'loader-hidden' : ''}`} role="status" aria-live="polite" aria-label="Loading Ishan Krishna Verma portfolio">
+      <div className="loader-island">
+        <span>i</span>
+        <span>s</span>
+        <span>h</span>
+        <span>a</span>
+        <span>n</span>
+      </div>
+      <p>% npx ishan</p>
+    </div>
+  )
+}
 
 function Header() {
   return (
@@ -29,7 +52,7 @@ function Header() {
 
 function CreativeNav() {
   return (
-    <nav className="creative-nav" aria-label="creative index">
+    <nav className="creative-nav island-nav" aria-label="creative index">
       {categories.map((item) => (
         <NavLink key={item.path} to={item.path}>
           {item.label}
@@ -272,6 +295,7 @@ function NotFound() {
 function App() {
   return (
     <BrowserRouter>
+      <Loader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
