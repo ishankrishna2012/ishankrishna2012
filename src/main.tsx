@@ -84,6 +84,30 @@ function Loader() {
   )
 }
 
+function ThemeToggle() {
+  const [theme, setTheme] = useState(() => {
+    const stored = window.localStorage.getItem('theme')
+    if (stored === 'dark' || stored === 'light') return stored
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    window.localStorage.setItem('theme', theme)
+  }, [theme])
+
+  return (
+    <button
+      className="theme-toggle"
+      type="button"
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+      onClick={() => setTheme((current: string) => (current === 'dark' ? 'light' : 'dark'))}
+    >
+      {theme === 'dark' ? 'light' : 'dark'}
+    </button>
+  )
+}
+
 function Header() {
   return (
     <header className="site-header" aria-label="primary navigation">
@@ -99,6 +123,7 @@ function Header() {
       <nav className="nav-side nav-right" aria-label="main right links">
         <NavLink to="/resume">resume</NavLink>
         <NavLink to="/contact">contact</NavLink>
+        <ThemeToggle />
       </nav>
     </header>
   )
@@ -293,6 +318,19 @@ function Writing() {
   )
 }
 
+function Mun() {
+  return (
+    <Page>
+      <section className="content-page empty-state">
+        <p className="label">m u n</p>
+        <h1>committee notes are still being assembled.</h1>
+        <p>Model United Nations work can live here later — speeches, research, position papers or conference notes. nothing fake added just to fill space.</p>
+      </section>
+      <CreativeNav />
+    </Page>
+  )
+}
+
 function Contact() {
   return (
     <Page>
@@ -358,6 +396,7 @@ function App() {
         <Route path="/design" element={<CategoryPage category="design" />} />
         <Route path="/experiments" element={<CategoryPage category="experiments" />} />
         <Route path="/writing" element={<Writing />} />
+        <Route path="/mun" element={<Mun />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="*" element={<NotFound />} />

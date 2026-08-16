@@ -14,7 +14,7 @@ export type Project = {
 
 export type CreativeCategory = {
   path: string
-  label: 'dev' | 'ai' | 'design' | 'experiments' | 'writing'
+  label: 'dev' | 'ai' | 'design' | 'experiments' | 'writing' | 'mun'
   description: string
 }
 
@@ -137,4 +137,5 @@ export const categories: CreativeCategory[] = [
   { path: '/design', label: 'design', description: 'interfaces, identity fragments and the quiet parts of product work.' },
   { path: '/experiments', label: 'experiments', description: 'small strange things that escaped the notebook.' },
   { path: '/writing', label: 'writing', description: 'build logs and notes will live here when they exist.' },
+  { path: '/mun', label: 'mun', description: 'Model United Nations notes and projects will live here when they exist.' },
 ]
