@@ -1,0 +1,43 @@
+{
+  "name": "ishan",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Ishan Krishna Verma personal portfolio and npx card.",
+  "type": "module",
+  "bin": {
+    "ishan": "./bin/ishan.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "public",
+    "index.html",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "latest",
+    "vite": "latest",
+    "typescript": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-router-dom": "latest",
+    "animejs": "latest"
+  },
+  "devDependencies": {},
+  "homepage": "https://github.com/ishankrishna2012/Portfolio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ishankrishna2012/Portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "ishan",
+    "creative-technologist",
+    "npx-card"
+  ]
+}
