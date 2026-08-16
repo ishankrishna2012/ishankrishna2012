@@ -25,7 +25,8 @@
     "typescript": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "latest"
+    "react-router-dom": "latest",
+    "animejs": "latest"
   },
   "devDependencies": {},
   "homepage": "https://github.com/ishankrishna2012/Portfolio",

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { categories, githubAvatar, githubProfile, projects, type Project, type ProjectCategory } from './projects'
@@ -6,26 +6,80 @@ import './styles.css'
 
 const externalLinkProps = { target: '_blank', rel: 'noreferrer noopener' }
 const spaced = (word: string) => word.split('').join(' ')
+const loaderGreetings = ['hi', 'hola', 'नमस्ते', 'bonjour', 'مرحبا']
 
+type AnimeModule = {
+  animate?: (targets: Element | null, parameters: Record<string, unknown>) => unknown
+  stagger?: (duration: number) => unknown
+  default?: (parameters: Record<string, unknown>) => unknown
+}
 
 function Loader() {
   const [hidden, setHidden] = useState(false)
+  const [greetingIndex, setGreetingIndex] = useState(0)
+  const wordRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    const timer = window.setTimeout(() => setHidden(true), 1200)
-    return () => window.clearTimeout(timer)
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (reduceMotion) {
+      setHidden(true)
+      return
+    }
+
+    const greetingTimer = window.setInterval(() => {
+      setGreetingIndex((index: number) => (index + 1) % loaderGreetings.length)
+    }, 210)
+    const hideTimer = window.setTimeout(() => {
+      window.clearInterval(greetingTimer)
+      setHidden(true)
+    }, 1260)
+
+    return () => {
+      window.clearInterval(greetingTimer)
+      window.clearTimeout(hideTimer)
+    }
   }, [])
 
+  useEffect(() => {
+    void import('animejs').then((animeModule) => {
+      const module = animeModule as unknown as AnimeModule
+      const animate = module.animate
+
+      if (animate) {
+        animate(wordRef.current, {
+          opacity: [0, 1],
+          translateY: [8, 0],
+          scale: [0.98, 1],
+          duration: 260,
+          easing: 'out(3)',
+        })
+      } else if (module.default) {
+        module.default({
+          targets: wordRef.current,
+          opacity: [0, 1],
+          translateY: [8, 0],
+          scale: [0.98, 1],
+          duration: 260,
+          easing: 'easeOutQuad',
+        })
+      }
+    })
+  }, [greetingIndex])
+
   return (
-    <div className={`loader ${hidden ? 'loader-hidden' : ''}`} role="status" aria-live="polite" aria-label="Loading Ishan Krishna Verma portfolio">
-      <div className="loader-island">
-        <span>i</span>
-        <span>s</span>
-        <span>h</span>
-        <span>a</span>
-        <span>n</span>
+    <div
+      className={`loader ${hidden ? 'loader-hidden' : ''}`}
+      role="status"
+      aria-live="polite"
+      aria-label="Loading Ishan Krishna Verma portfolio"
+    >
+      <div className="loader-island" aria-hidden="true">
+        <span ref={wordRef} className="loader-word">
+          {loaderGreetings[greetingIndex]}
+        </span>
       </div>
-      <p>% npx ishan</p>
+      <p>% waking the archive</p>
     </div>
   )
 }

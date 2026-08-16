@@ -148,15 +148,22 @@ a:focus-visible {
   font-size: 2.2rem;
 }
 
-.loader-island span {
+.loader-word {
   display: inline-block;
-  animation: loader-bob 760ms var(--ease) infinite alternate;
+  min-width: 7rem;
+  text-align: center;
+  will-change: opacity, transform;
 }
 
-.loader-island span:nth-child(2) { animation-delay: 70ms; }
-.loader-island span:nth-child(3) { animation-delay: 140ms; }
-.loader-island span:nth-child(4) { animation-delay: 210ms; }
-.loader-island span:nth-child(5) { animation-delay: 280ms; }
+.loader-island::after {
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+  background: currentColor;
+  content: '';
+  opacity: 0.72;
+  animation: island-pulse 640ms var(--ease) infinite alternate;
+}
 
 .loader p {
   position: absolute;
@@ -167,15 +174,13 @@ a:focus-visible {
   font-size: 0.82rem;
 }
 
-@keyframes loader-bob {
+@keyframes island-pulse {
   from {
-    opacity: 0.45;
-    transform: translateY(5px);
+    transform: scale(0.72);
   }
 
   to {
-    opacity: 1;
-    transform: translateY(-2px);
+    transform: scale(1.18);
   }
 }
 
@@ -529,7 +534,7 @@ a:focus-visible {
     transition-duration: 0.001ms !important;
   }
 
-  .loader-island span {
+  .loader-island::after {
     animation: none !important;
   }
 
