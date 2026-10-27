@@ -14,22 +14,19 @@
     <img src="https://img.shields.io/badge/website-gabrielegrandinetti.dev-F7DF1E?style=for-the-badge&logo=devbox&logoColor=%23ffffff"/>
   </a>
 
-  <a href="mailto:you@example.com" target="_blank">
+  <a href="mailto:contactishankrishna@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/email-gabriele.grandinetti%40hotmail.com-0078D4?style=for-the-badge&logo=mailgun&logoColor=%23ffffff"/>
   </a>
 </p>
 
 ## 🧑‍💻 About Me
 
-<em>✏️ A sentence about you and what you do.</em>
-<em>✏️ A sentence about you and what you do.</em>
+<em>✏️ I develop COOL APPS.</em>
+<em>✏️ really great at what i do.</em>
 
-<em>✏️ A sentence about you and what you do.</em>
+<em>✏️ maybe i write books👀.</em>
 
-- 🏙️ <em>✏️ A sentence about you and what you do.</em>
-- 🔭 <em>✏️ A sentence about you and what you do.</em>
-- 💡 <em>✏️ A sentence about you and what you do.</em>
-- 🌐 <em>✏️ A sentence about you and what you do.</em>
+- 🏙️ <em>✏️ in high school i guess</em>
 
 ## 🛠️ Tech Stack
 
