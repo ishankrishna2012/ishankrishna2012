@@ -22,6 +22,7 @@
 ## 🧑‍💻 About Me
 
 <em>✏️ I develop COOL APPS.</em>
+
 <em>✏️ really great at what i do.</em>
 
 <em>✏️ maybe i write books👀.</em>
