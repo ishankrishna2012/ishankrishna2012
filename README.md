@@ -15,7 +15,7 @@
   </a>
 
   <a href="mailto:contactishankrishna@gmail.com" target="_blank">
-    <img src="https://img.shields.io/badge/email-gabriele.grandinetti%40hotmail.com-0078D4?style=for-the-badge&logo=mailgun&logoColor=%23ffffff"/>
+    <img src="https://img.shields.io/badge/email-contactishankrishna@gmail.com-0078D4?style=for-the-badge&logo=mailgun&logoColor=%23ffffff"/>
   </a>
 </p>
 
