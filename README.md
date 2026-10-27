@@ -26,7 +26,7 @@
 
 <em>✏️ maybe i write books👀.</em>
 
-- 🏙️ <em>✏️ in high school i guess</em>
+ <em>✏️ in high school i guess</em>
 
 ## 🛠️ Tech Stack
 
